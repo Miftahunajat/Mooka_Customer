@@ -60,4 +60,6 @@ dependencies {
 
     //calendar view
     implementation 'com.github.kizitonwose:CalendarView:0.2.8'
+
+    implementation 'com.anjith.starview:starview:1.0.1'
 }

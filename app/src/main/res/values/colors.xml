@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">@color/ruby_red</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
@@ -299,5 +299,10 @@
     <color name="grey_900">#212121</color>
 
     <color name="ruby_red">#D02133</color>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/yellow_800</item>
+        <item name="colorControlActivated">@color/grey_500</item>
+    </style>
 
 </resources>
