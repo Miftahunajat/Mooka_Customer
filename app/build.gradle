@@ -61,6 +61,7 @@ dependencies {
     //calendar view
     implementation 'com.github.kizitonwose:CalendarView:0.2.8'
 
-    //Circular ImageView
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'com.anjith.starview:starview:1.0.1'
 }
