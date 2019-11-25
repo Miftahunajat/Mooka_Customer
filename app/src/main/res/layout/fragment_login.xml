@@ -3,36 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.LoginFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColorHint="@color/ruby_red"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextNoTelp"
+            android:id="@+id/etNoTelp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="No Telp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btn_login">
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:textColorHint="@color/ruby_red"
+        app:layout_constraintBottom_toTopOf="@id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="@color/ruby_red"
             tools:layout_editor_absoluteX="-45dp"
             tools:layout_editor_absoluteY="488dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -41,9 +55,12 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:text="masuk"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
+        app:backgroundTint="@color/ruby_red"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@id/linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,23 +88,33 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pengguna Baru ?"
+                android:text="Pengguna Baru ? "
                 android:textAlignment="center"
+                android:textColor="@color/ruby_red"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_daftar_disini"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" Daftar disini"
+                android:text="Daftar Disini"
                 android:textAlignment="center"
+                android:textColor="@color/ruby_red"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:src="@mipmap/logo_mooka"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
