@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="@dimen/font_title"
+        android:textColor="@color/colorBlack"
         android:text="Miftahun Najat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rating"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/font_title"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -36,7 +41,15 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4.0 / 5"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/ruby_red"
+        android:text="4.0 / 5.0"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/grey_500"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
