@@ -10,4 +10,24 @@
         android:name="com.example.mooka_customer.screens.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.mooka_customer.screens.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.mooka_customer.screens.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/detailProdukFragment"
+        android:name="com.example.mooka_customer.screens.DetailProdukFragment"
+        android:label="fragment_detail_produk"
+        tools:layout="@layout/fragment_detail_produk" />
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.mooka_customer.screens.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" />
 </navigation>
