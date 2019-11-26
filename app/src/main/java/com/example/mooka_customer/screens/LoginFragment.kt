@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
+import com.example.mooka_customer.network.Repository
 import kotlinx.android.synthetic.main.fragment_login.view.*
 import kotlinx.android.synthetic.main.fragment_register.view.*
 import kotlinx.android.synthetic.main.fragment_register.view.btn_login
@@ -26,10 +27,15 @@ class LoginFragment : Fragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment2())
         }
         view.btn_login.setOnClickListener {
+            loginUser()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
         }
         // Inflate the layout for this fragment
         return view
+    }
+
+    private fun loginUser() {
+
     }
 
 
