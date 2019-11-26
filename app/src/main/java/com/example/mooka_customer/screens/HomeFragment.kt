@@ -3,21 +3,25 @@ package com.example.mooka_customer.screens
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mooka_customer.R
 import com.example.mooka_customer.extension.setupNoAdapter
 import com.example.mooka_customer.extension.showmessage
+import com.example.mooka_customer.extension.toRupiahs
 import com.example.mooka_customer.network.Repository
 import com.example.mooka_customer.network.lib.Resource
+import com.example.mooka_customer.network.model.Product
 import com.example.mooka_customer.network.model.UMKM
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.item_product_populer.view.*
 import kotlinx.android.synthetic.main.item_product_rekomendasi.view.*
 
 /**
@@ -36,7 +40,6 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         return view
     }
-
 
 
     private fun setupRekomendasi(view: View?) {
@@ -65,18 +68,45 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupPopuler(view: View?) {
-        view!!.rv_populer.setupNoAdapter(
-            R.layout.item_product_populer,
-            listOf("1","2","3","4","5"),
-            GridLayoutManager(context, 3)
-        ) { _, _->
-
-        }
+        Repository.getAllProducts().observe(this, Observer {
+            when(it?.status){
+                Resource.LOADING ->{
+                    Log.d("Loadinglele", it.status.toString())
+                }
+                Resource.SUCCESS ->{
+                    view?.rv_populer?.setupNoAdapter(
+                        R.layout.item_product_populer,
+                        it.data!!,
+                        GridLayoutManager(context, 3),
+                        ::bindPopularProductRecyclerView
+                    )
+                    Log.d("Successlele", it.data.toString())
+                }
+                Resource.ERROR ->{
+                    Log.d("Errorlele", it.message!!)
+                    context?.showmessage("Something is wrong")
+                }
+            }
+        })
     }
 
     fun bindUmkmRecyclerView(view: View, umkm: UMKM){
         view.tv_title.text = umkm.nama
-//        view?.tv_subtitle.setText()
         Picasso.get().load(umkm.gambar.standard.url).into(view.bg_banner)
+
+        view.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailUmkmFragment2(umkm.id))
+        }
+    }
+
+    fun bindPopularProductRecyclerView (view: View, product: Product) {
+        Picasso.get().load(product.gambar.url).into(view.iv_product_banner)
+        view.tv_title_product.text = product.title
+        view.tv_price_product.text = product.harga.toString().toRupiahs()
+        view.tv_location_product.text = product.umkm.kota
+
+        view.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(product.id))
+        }
     }
 }

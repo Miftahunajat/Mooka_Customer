@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailProdukFragment"
             app:destination="@id/detailProdukFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailUmkmFragment2"
+            app:destination="@id/detailUmkmFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -32,6 +35,9 @@
         <action
             android:id="@+id/action_detailProdukFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
+        <argument
+            android:name="idProduct"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
@@ -42,5 +48,9 @@
         android:id="@+id/detailUmkmFragment"
         android:name="com.example.mooka_customer.DetailUmkmFragment"
         android:label="fragment_detail_umkm"
-        tools:layout="@layout/fragment_detail_umkm" />
+        tools:layout="@layout/fragment_detail_umkm">
+        <argument
+            android:name="idUmkm"
+            app:argType="integer" />
+    </fragment>
 </navigation>

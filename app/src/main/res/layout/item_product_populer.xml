@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iv_product_banner"
         android:layout_width="122dp"
         android:layout_height="154dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,32 +32,31 @@
         app:srcCompat="@drawable/gradient_linechart_circle" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_title_product"
         android:layout_width="wrap_content"
         android:layout_marginTop="72dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Baju Bayi 1 Thn"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@id/textView5"
+        app:layout_constraintBottom_toTopOf="@id/tv_price_product"
         android:textSize="@dimen/font_subtitle"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-         />
+        app:layout_constraintStart_toStartOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_price_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rp, 59.000"
         android:layout_marginBottom="4dp"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/font_subtitle"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_location_product"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_product" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_location_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Surabaya"
