@@ -13,7 +13,7 @@
 
     <color name="colorTransparent">#00FFFFFF</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
-    <color name="colorDarkTransparent">#AA000000</color>
+    <color name="colorDarkTransparent">#AA111111</color>
 
     <color name="colorBackgroundMission">#EBF9FA</color>
 
