@@ -1,12 +1,24 @@
-package com.example.mooka_umkm.network
+package com.example.mooka_customer.network
 
 import com.example.mooka_customer.network.model.ListResponse
+import com.example.mooka_customer.network.model.User
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
+    @GET("users")
+    fun getAllUsers(): Deferred<Response<ListResponse<User>>>
+
+    @GET("users/{user_id}")
+    fun getUserDetail(
+        @Path("user_id") id: Int
+    ): Deferred<Response<User>>
+
+
+
+
 //    @GET("search/repositories")
 //    fun getRepos(@Query("q") query: String): Deferred<Response<ListResponse<Repo>>>
 //

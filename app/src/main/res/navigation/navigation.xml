@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.mooka_customer.screens.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailProdukFragment"
+            app:destination="@id/detailProdukFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.mooka_customer.screens.ProfileFragment"
@@ -24,7 +28,11 @@
         android:id="@+id/detailProdukFragment"
         android:name="com.example.mooka_customer.screens.DetailProdukFragment"
         android:label="fragment_detail_produk"
-        tools:layout="@layout/fragment_detail_produk" />
+        tools:layout="@layout/fragment_detail_produk" >
+        <action
+            android:id="@+id/action_detailProdukFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.example.mooka_customer.screens.CheckoutFragment"

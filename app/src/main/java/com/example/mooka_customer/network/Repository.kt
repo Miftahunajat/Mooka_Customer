@@ -2,7 +2,6 @@ package com.example.mooka_customer.network
 
 import com.example.mooka_customer.Config
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.example.mooka_umkm.network.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
