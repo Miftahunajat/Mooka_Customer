@@ -61,7 +61,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:backgroundTint="@color/ruby_red"
-        app:cornerRadius="8dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@id/linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
