@@ -15,6 +15,11 @@ interface ApiService {
         @Path("user_id") id: Int
     ): Deferred<Response<User>>
 
+    @GET("products/{product_id}")
+    fun getProductDetail(
+        @Path("product_id") id: Int
+    ): Deferred<Response<Product>>
+
     @GET("umkms")
     fun getAllUmkms() : Deferred<Response<ListResponse<UMKM>>>
 

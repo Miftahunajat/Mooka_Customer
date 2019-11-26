@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
 
@@ -26,6 +27,10 @@ object Repository {
 
     fun getAllProducts() = networkCall<ListResponse<Product>, List<Product>> {
         client = ManagemenApi.apiService.getAllProducts()
+    }
+
+    fun getProductDetail(id: Int) = networkCall<Product, Product> {
+        client = ManagemenApi.apiService.getProductDetail(id)
     }
 
 }

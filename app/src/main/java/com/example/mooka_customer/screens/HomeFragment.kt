@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
                         it.data!!,
                         LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false),
                         ::bindUmkmRecyclerView
-
                     )
                     Log.d("Success", it.data.toString())
                 }

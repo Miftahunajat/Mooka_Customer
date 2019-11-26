@@ -20,14 +20,14 @@
         android:layout_height="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toBottomOf="@+id/iv_banner">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -40,14 +40,14 @@
                 tools:layout_editor_absoluteY="8dp" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Rp 59.000"
                 android:textColor="@color/ruby_red"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
             <RatingBar
                 android:id="@+id/star_view"
@@ -59,8 +59,8 @@
                 android:rating="2"
                 android:stepSize="1"
                 android:theme="@style/Widget.AppCompat.RatingBar.Indicator"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintStart_toStartOf="@+id/tv_price"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -74,7 +74,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_banner"
         android:layout_width="wrap_content"
         android:layout_height="290dp"
         android:src="@drawable/baju_bayi"
@@ -109,7 +109,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_title_alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -120,13 +120,13 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tv_subtitle_alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jl. Brigjend Katamso No. 83"
                 android:textSize="@dimen/font_subtitle"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintStart_toStartOf="@+id/tv_title_alamat"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_alamat" />
 
             <ImageView
                 android:id="@+id/imageView7"
@@ -171,6 +171,7 @@
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="44dp"
                 app:layout_constraintTop_toBottomOf="@id/textView10"
+                android:id="@+id/rv_produk_lainnnya"
                 tools:listitem="@layout/item_pilihan_toko_lainnya"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
