@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
 
     fun bindUmkmRecyclerView(view: View, umkm: UMKM){
         view.tv_title.text = umkm.nama
-//        view?.tv_subtitle.setText()
+        view.tv_subtitle.setText(umkm.jenis_umkm.tipe_umkm)
         Picasso.get().load(umkm.gambar.url).into(view.bg_banner)
     }
 }
