@@ -1,7 +1,6 @@
 package com.example.mooka_customer.network
 
-import com.example.mooka_customer.network.model.ListResponse
-import com.example.mooka_customer.network.model.User
+import com.example.mooka_customer.network.model.*
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -16,7 +15,16 @@ interface ApiService {
         @Path("user_id") id: Int
     ): Deferred<Response<User>>
 
+    @GET("umkms")
+    fun getAllUmkms() : Deferred<Response<ListResponse<UMKM>>>
 
+    @GET("products")
+    fun getAllProducts() : Deferred<Response<ListResponse<Product>>>
+
+    @GET("users/{user_id}/notifications")
+    fun  getAllNotifications(
+        @Path("user_id") id: Int
+    ) : Deferred<Response<ListResponse<Notification>>>
 
 
 //    @GET("search/repositories")

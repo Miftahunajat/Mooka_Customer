@@ -1,6 +1,11 @@
 package com.example.mooka_customer.network
 
 import com.example.mooka_customer.Config
+import com.example.mooka_customer.network.lib.networkCall
+import com.example.mooka_customer.network.model.ListResponse
+import com.example.mooka_customer.network.model.Product
+import com.example.mooka_customer.network.model.UMKM
+import com.example.mooka_customer.network.model.User
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,6 +16,19 @@ import java.util.concurrent.TimeUnit
 
 
 object Repository {
+    fun getAllUsers() = networkCall<ListResponse<User>, List<User>> {
+        client = ManagemenApi.apiService.getAllUsers()
+    }
+
+    fun getAllUmkms() = networkCall<ListResponse<UMKM>, List<UMKM>> {
+        client = ManagemenApi.apiService.getAllUmkms()
+    }
+
+    fun getAllProducts() = networkCall<ListResponse<Product>, List<Product>> {
+        client = ManagemenApi.apiService.getAllProducts()
+    }
+
+}
 //    fun saveUser(user: UserResponse, context: Context){
 //        val gson = Gson()
 //        val json = gson.toJson(user)
@@ -166,7 +184,7 @@ object Repository {
 //    fun getTotalPengeluaran() = networkCall<TotalPengeluaranResponse,TotalPengeluaranResponse> {
 //        client = ManagemenApi.apiService.getTotalPengeluaran()
 //    }
-}
+//}
 
 object ManagemenApi {
     var interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
