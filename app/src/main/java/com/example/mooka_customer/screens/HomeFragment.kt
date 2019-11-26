@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
                         it.data!!,
                         LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false),
                         ::bindUmkmRecyclerView
-
                     )
                     Log.d("Success", it.data.toString())
                 }
@@ -77,6 +76,6 @@ class HomeFragment : Fragment() {
     fun bindUmkmRecyclerView(view: View, umkm: UMKM){
         view.tv_title.text = umkm.nama
 //        view?.tv_subtitle.setText()
-        Picasso.get().load(umkm.gambar.standard.url).into(view.bg_banner)
+        Picasso.get().load(umkm.gambar.url).into(view.bg_banner)
     }
 }
