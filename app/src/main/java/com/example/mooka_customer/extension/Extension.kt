@@ -20,7 +20,11 @@ import androidx.core.content.ContextCompat
 import java.text.SimpleDateFormat
 import java.util.*
 import android.app.Activity
+import android.text.InputType
 import android.view.inputmethod.InputMethodManager
+import com.example.mooka_customer.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.fragment_bottom_sheet_dialog.view.*
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.temporal.WeekFields
 
@@ -182,4 +186,24 @@ fun ImageView.setDrawable(@DrawableRes id: Int){
 fun Context.hideKeyboardFrom(view: View) {
     val imm = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Context.showEditableBottomSheetDialog(title: String = "Masukkan data baru",
+                                          text: String,
+                                          inputType: Int = InputType.TYPE_CLASS_TEXT,
+                                          update: (String) -> Unit){
+    val bottomSheetDialog = BottomSheetDialog(this)
+    val dialogView = LayoutInflater.from(this).inflate(R.layout.fragment_bottom_sheet_dialog, null)
+    dialogView.tv_batal.setOnClickListener {
+        bottomSheetDialog.dismiss()
+    }
+    bottomSheetDialog.setContentView(dialogView)
+    dialogView.tv_title.text = title
+    dialogView.et_data.setText(text)
+    dialogView.et_data.inputType= inputType
+    dialogView.tv_simpan.setOnClickListener {
+        update(dialogView.et_data.text.toString())
+        bottomSheetDialog.dismiss()
+    }
+    bottomSheetDialog.show()
 }
