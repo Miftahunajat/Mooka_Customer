@@ -227,6 +227,7 @@
         android:weightSum="1"
         android:layout_alignParentBottom="true">
         <TextView
+            android:id="@+id/btn_tambah_keranjang"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="0.5"
@@ -238,6 +239,7 @@
             android:textColor="@color/ruby_red"
             android:textAllCaps="false"/>
         <TextView
+            android:id="@+id/btn_beli_sekarang"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="48dp"

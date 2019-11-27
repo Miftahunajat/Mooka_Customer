@@ -104,6 +104,17 @@ fun View.addDialogDaftarArisanOnClick(judulArisan: String, update: () -> Unit){
 //    dialog.show()
 //}
 
+fun Context.showAlertDialog(
+    title: String = "Perubahan Data",
+    message: String = "Apakah anda yakin ingin melalukannya"
+){
+    val builder = AlertDialog.Builder(this)
+    builder.setTitle(title)
+    builder.setMessage(message)
+    val dialog: AlertDialog = builder.create()
+    dialog.show()
+}
+
 fun Uri.getRealPath(context: Context): String? {
     var cursor: Cursor? = null
     try {

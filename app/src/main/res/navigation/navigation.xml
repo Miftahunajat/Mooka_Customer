@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailProdukFragment"
-            app:destination="@id/detailProdukFragment" />
+            app:destination="@id/detailProdukFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_homeFragment_to_detailUmkmFragment2"
             app:destination="@id/detailUmkmFragment" />
@@ -37,6 +41,9 @@
             app:destination="@id/checkoutFragment" />
         <argument
             android:name="idProduct"
+            app:argType="integer" />
+        <argument
+            android:name="idUmkm"
             app:argType="integer" />
     </fragment>
     <fragment

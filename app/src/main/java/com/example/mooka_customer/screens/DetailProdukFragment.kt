@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mooka_customer.R
 import com.example.mooka_customer.extension.setupNoAdapter
@@ -26,13 +27,18 @@ class DetailProdukFragment : Fragment() {
 
 
     var productId = 0
-    var umkmId = 0;
+    var umkmId = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_detail_produk, container, false)
+        val args by navArgs<DetailProdukFragmentArgs>()
+
+        productId = args.idProduct
+        umkmId = args.idUmkm
+
         setupProductDetail(view!!)
         setupProductTerkait(view)
         // Inflate the layout for this fragment
@@ -64,13 +70,13 @@ class DetailProdukFragment : Fragment() {
     }
 
     private fun setupProductDetail(view: View) {
-        Repository.getProductDetail(1).observe(this, Observer {
+        Repository.getProductDetail(productId).observe(this, Observer {
             when(it?.status){
                 Resource.LOADING ->{
                     Log.d("Loading", it.status.toString())
                 }
                 Resource.SUCCESS ->{
-                    Picasso.get().load(it.data?.gambar?.url)
+                    Picasso.get().load(it.data?.gambar?.url).into(view.iv_banner)
                     view.tv_title.text = it.data?.title
                     view.tv_price.text = it.data?.harga.toString().toRupiahs()
 
@@ -90,5 +96,5 @@ class DetailProdukFragment : Fragment() {
 }
 
 fun bindPilihanTokoLainnya(view: View, product: Product) {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
 }

@@ -105,7 +105,7 @@ class HomeFragment : Fragment() {
         view.tv_location_product.text = product.umkm.kota
 
         view.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(product.id))
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailProdukFragment(product.id,product.umkm_id))
         }
     }
 }
