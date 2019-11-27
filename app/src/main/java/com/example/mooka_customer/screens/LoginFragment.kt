@@ -10,16 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
-import com.example.mooka_customer.extension.getPrefInt
-import com.example.mooka_customer.extension.savePref
-import com.example.mooka_customer.extension.showAlertDialog
-import com.example.mooka_customer.extension.showmessage
+import com.example.mooka_customer.extension.*
 import com.example.mooka_customer.network.Repository
 import com.example.mooka_customer.network.lib.Resource
 import com.example.mooka_customer.network.model.User
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import kotlinx.android.synthetic.main.fragment_register.view.*
 import kotlinx.android.synthetic.main.fragment_register.view.btn_login
 
 /**
@@ -36,7 +32,8 @@ class LoginFragment : Fragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment2())
         }
         view.btn_login.setOnClickListener {
-            loginUser(et_no_telp.text.toString(), et_password.text.toString())
+            view.btn_login.finishLoading()
+            loginUser(et_no_telp.text.toString(), et_password.text.toString(), it)
         }
         if (context!!.getPrefInt("user_id") != -1){
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
@@ -45,7 +42,7 @@ class LoginFragment : Fragment() {
         return view
     }
 
-    private fun loginUser(noTelp:String, password:String) {
+    private fun loginUser(noTelp:String, password:String, view: View) {
         Repository.getAllUsers().observe(this, Observer {
             when(it?.status){
                 Resource.LOADING ->{
@@ -57,6 +54,7 @@ class LoginFragment : Fragment() {
                         context!!.showAlertDialog("Gagal Login!", "Pastikan nomor telepon dan password Anda telah terdaftar")
                     else {
                         context!!.savePref("user_id", user.id)
+                        view.btn_login.finishLoading()
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
                     }
 

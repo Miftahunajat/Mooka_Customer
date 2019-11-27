@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mooka_customer.R
@@ -25,7 +26,6 @@ import kotlinx.android.synthetic.main.item_pilihan_toko_lainnya.view.*
  * A simple [Fragment] subclass.
  */
 class DetailProdukFragment : Fragment() {
-
 
     var productId = 0
     var umkmId = 0
@@ -46,10 +46,14 @@ class DetailProdukFragment : Fragment() {
             onTambahKeranjang()
         }
         view.btn_beli_sekarang.setOnClickListener {
-//            onBeliSekarangClick()
+            onBeliSekarangClick()
         }
         // Inflate the layout for this fragment
         return view
+    }
+
+    private fun onBeliSekarangClick() {
+        findNavController().navigate(DetailProdukFragmentDirections.actionDetailProdukFragmentToCheckoutFragment())
     }
 
     private fun onTambahKeranjang() {

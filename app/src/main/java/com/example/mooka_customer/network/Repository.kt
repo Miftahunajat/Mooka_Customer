@@ -30,12 +30,24 @@ object Repository {
         client = ManagemenApi.apiService.getProductDetail(id)
     }
 
+    fun getUmkmDetail(id: Int) = networkCall<UMKM, UMKM> {
+        client = ManagemenApi.apiService.getUmkmDetail(id)
+    }
+
     fun getAllCarts(userId: Int) = networkCall<ListResponse<Cart>, List<Cart>> {
         client = ManagemenApi.apiService.getAllCarts(userId)
     }
 
     fun postToCart(userId: Int, umkmId: Int, productId: Int) = networkCall<Cart, Cart> {
         client = ManagemenApi.apiService.addToCart(userId, umkmId, productId)
+    }
+
+    fun checkout(userId: String, pengrimanId: Int?, donasi:Int) = networkCall<Cart, Cart> {
+        client = ManagemenApi.apiService.checkout(userId, pengrimanId, donasi)
+    }
+
+    fun getAllJenisPengiriman() = networkCall<ListResponse<JenisPengiriman>, List<JenisPengiriman>> {
+        client = ManagemenApi.apiService.getAllJenisPengiriman()
     }
 }
 

@@ -8,10 +8,6 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog
@@ -22,9 +18,14 @@ import java.util.*
 import android.app.Activity
 import android.text.InputType
 import android.view.inputmethod.InputMethodManager
+import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mooka_customer.R
+import com.example.mooka_customer.network.model.JenisPengiriman
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_bottom_sheet_dialog.view.*
+import kotlinx.android.synthetic.main.fragment_list_dialog.view.*
+import kotlinx.android.synthetic.main.item_jenis_pengiriman.view.*
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.temporal.WeekFields
 
@@ -130,8 +131,6 @@ fun Uri.getRealPath(context: Context): String? {
     } finally {
         cursor?.close()
     }
-
-
 }
 
 fun View.toLoading() {
@@ -206,4 +205,41 @@ fun Context.showEditableBottomSheetDialog(title: String = "Masukkan data baru",
         bottomSheetDialog.dismiss()
     }
     bottomSheetDialog.show()
+}
+
+fun Context.showListDialog (jenisPengiriman : List<JenisPengiriman>, context: Context, update: (JenisPengiriman) -> Unit){
+    val bottomSheetDialog = BottomSheetDialog(this)
+    val dialogView = LayoutInflater.from(this).inflate(R.layout.fragment_list_dialog, null)
+    bottomSheetDialog.setContentView(dialogView)
+    dialogView.rv_list_pengiriman.setupNoAdapter(
+        R.layout.item_jenis_pengiriman,
+        jenisPengiriman,
+        LinearLayoutManager(context)
+    ) { view, jenisPengiriman ->
+        view.tv_title_jenis_pengiriman.text = jenisPengiriman.nama
+        view.tv_price_jenis_pengiriman.text = jenisPengiriman.harga.toString().toRupiahs()
+        view.setOnClickListener{
+            update(jenisPengiriman)
+            bottomSheetDialog.dismiss()
+        }
+    }
+    bottomSheetDialog.show()
+}
+
+fun Context.showAlertDialog(
+    title: String = "Perubahan Data",
+    message: String = "Apakah anda yakin ingin melalukannya",
+    onYes: String = "Perubahan Data Berhasil",
+    update: () -> Unit
+){
+    val builder = AlertDialog.Builder(this)
+    builder.setTitle(title)
+    builder.setMessage(message)
+    builder.setPositiveButton("YES"){ _, _ ->
+        this.showmessage(onYes)
+        update()
+    }
+
+    val dialog: AlertDialog = builder.create()
+    dialog.show()
 }

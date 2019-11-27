@@ -11,11 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.mooka_customer.R
 import com.example.mooka_customer.extension.showmessage
-import com.example.mooka_customer.extension.toRupiahs
 import com.example.mooka_customer.network.Repository
 import com.example.mooka_customer.network.lib.Resource
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_detail_umkm.*
 import kotlinx.android.synthetic.main.fragment_detail_umkm.view.*
 
 /**
@@ -35,17 +33,17 @@ class DetailUmkmFragment : Fragment() {
     private fun getUmkmDetail (view: View) {
         val detailUmkmArgs by navArgs<DetailUmkmFragmentArgs>()
 
-        Repository.getProductDetail(detailUmkmArgs.idUmkm).observe(this, Observer {
+        Repository.getUmkmDetail(detailUmkmArgs.idUmkm).observe(this, Observer {
             when(it?.status){
                 Resource.LOADING ->{
                     Log.d("Loading", it.status.toString())
                 }
                 Resource.SUCCESS ->{
-                    Picasso.get().load(it.data!!.gambar.url).into(view.iv_product_banner)
-                    view.tv_title_product.text = it.data!!.title
-                    view.tv_price_product.text = it.data!!.harga.toString().toRupiahs()
-
-
+                    Picasso.get().load(it.data!!.gambar.url).into(view.iv_store_banner)
+                    view.tv_title_umkm.text = it.data!!.nama
+//                    view.tv_jenis_umkm.text = it.data!!.jenis_umkm.tipe_sum
+                    view.tv_store_user.text = it.data!!.nama_pemilik
+                    view.tv_store_address.text = it.data!!.alamat
 
                     Log.d("Success", it.data.toString())
                 }

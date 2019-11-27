@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/iv_product_banner"
+            android:id="@+id/iv_store_banner"
             android:layout_width="0dp"
             android:layout_height="290dp"
             android:src="@drawable/baju_bayi"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_title_product"
+            android:id="@+id/tv_title_umkm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -30,18 +30,18 @@
             android:textColor="@android:color/black"
             android:textSize="@dimen/font_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_product_banner" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_store_banner" />
 
         <TextView
-            android:id="@+id/tv_price_product"
+            android:id="@+id/tv_jenis_umkm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Rp 59.000"
+            android:text="Kerajinan Tangan"
             android:textColor="@color/ruby_red"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_product" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_umkm" />
 
         <ImageView
             android:id="@+id/imageView22"
@@ -51,10 +51,10 @@
             android:layout_marginTop="32dp"
             android:src="@drawable/ic_store_grey"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_price_product" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_jenis_umkm" />
 
         <TextView
-            android:id="@+id/tv_store_title"
+            android:id="@+id/tv_store_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -63,17 +63,17 @@
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView22"
-            app:layout_constraintTop_toBottomOf="@+id/tv_price_product" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_jenis_umkm" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/tv_store_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Jl. Bridgen Katamso NO. 48"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView22"
-            app:layout_constraintTop_toBottomOf="@+id/tv_store_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_store_user" />
 
         <TextView
             android:id="@+id/textView30"

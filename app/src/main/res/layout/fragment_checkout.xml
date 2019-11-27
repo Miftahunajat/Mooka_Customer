@@ -43,15 +43,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/tv_address_pengiriman"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Jln. Brigjend Katamso no 120"
-            app:layout_constraintEnd_toStartOf="@+id/imageView18"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/iv_address_form"
             app:layout_constraintStart_toEndOf="@+id/imageView17"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -59,27 +58,14 @@
             android:id="@+id/view8"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="24dp"
             android:background="@color/colorBlack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Waru Sidoarjo"
-            app:layout_constraintBottom_toTopOf="@+id/view8"
-            app:layout_constraintStart_toEndOf="@+id/imageView17"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_address_pengiriman" />
 
         <ImageView
-            android:id="@+id/imageView18"
+            android:id="@+id/iv_address_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -128,34 +114,32 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
         <TextView
-            android:id="@+id/tvNamaJasaPengiriman"
+            android:id="@+id/tv_nama_jasa_pengiriman"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Express"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view10" />
 
         <TextView
-            android:id="@+id/tvBiayaPengiriman"
+            android:id="@+id/tv_biaya_pengiriman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="Rp 10.000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNamaJasaPengiriman" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_jasa_pengiriman" />
 
         <ImageView
-            android:id="@+id/imageView20"
+            android:id="@+id/iv_select_jenis_pengiriman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_arrow_forward_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNamaJasaPengiriman" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_jasa_pengiriman" />
 
         <View
             android:id="@+id/view11"
@@ -165,7 +149,7 @@
             android:background="@color/colorGray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBiayaPengiriman" />
+            app:layout_constraintTop_toBottomOf="@id/tv_biaya_pengiriman" />
 
         <ImageView
             android:id="@+id/imageView21"
@@ -208,7 +192,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Subtotal Produk"
-            app:layout_constraintEnd_toStartOf="@+id/tvSubtotalroduk"
+            app:layout_constraintEnd_toStartOf="@+id/tv_subtotal_produk"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view12" />
 
@@ -223,7 +207,7 @@
             app:layout_constraintTop_toBottomOf="@id/textview2" />
 
         <CheckBox
-            android:id="@+id/checkboxCheckout"
+            android:id="@+id/checkbox_donasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -236,32 +220,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Total Pembayaran"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutDonasiTambahan" />
 
         <TextView
-            android:id="@+id/tvSubtotalroduk"
+            android:id="@+id/tv_subtotal_produk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Rp 59.000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view12" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/tv_subtotal_pengiriman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:text="Rp 10.000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSubtotalroduk" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_subtotal_produk" />
 
         <TextView
             android:id="@+id/textView26"
@@ -270,38 +252,36 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Bulatkan Tagihan untuk donasi UMKM"
-            app:layout_constraintStart_toEndOf="@+id/checkboxCheckout"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_donasi"
             app:layout_constraintTop_toBottomOf="@+id/textview3" />
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/tv_pembulatan_donasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Pembulatan Donasi sebesar Rp 1.000"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/checkboxCheckout"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_donasi"
             app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
         <TextView
-            android:id="@+id/tvTotalPembayaran"
+            android:id="@+id/tv_total_pembayaran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Rp 70.000"
             android:textColor="@color/ruby_red"
             android:textSize="18sp"
+            android:layout_marginTop="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutDonasiTambahan" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBayarCheckout"
+            android:id="@+id/btn_bayar_checkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
             android:text="Bayar"
@@ -310,8 +290,48 @@
             app:backgroundTint="@color/ruby_red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTotalPembayaran" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_pembayaran" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutDonasiTambahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_donasi">
+
+            <CheckBox
+                android:id="@+id/checkBox_tambah_donasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_mau_tambah_donasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mau tambah donasi?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/checkBox_tambah_donasi"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_donasi_tambahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,6 +20,11 @@ interface ApiService {
         @Path("product_id") id: Int
     ): Deferred<Response<Product>>
 
+    @GET("umkms/{umkm_id}")
+    fun getUmkmDetail(
+        @Path("umkm_id") id: Int
+    ): Deferred<Response<UMKM>>
+
     @GET("umkms")
     fun getAllUmkms() : Deferred<Response<ListResponse<UMKM>>>
 
@@ -43,4 +48,15 @@ interface ApiService {
     fun  getAllCarts(
         @Path("user_id") id: Int
     ) : Deferred<Response<ListResponse<Cart>>>
+
+    @FormUrlEncoded
+    @POST("users/{user_id}/carts/checkout")
+    fun  checkout(
+        @Path("user_id") userId: String,
+        @Field("pengiriman_id") pengirimanId: Int?,
+        @Field("donasi") donasi: Int
+    ) : Deferred<Response<Cart>>
+
+    @GET("pengirimen")
+    fun getAllJenisPengiriman () : Deferred<Response<ListResponse<JenisPengiriman>>>
 }

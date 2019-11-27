@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/roundedImageView"
+        android:id="@+id/iv_product_banner_cart"
         android:layout_width="90dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -21,7 +21,7 @@
         app:riv_corner_radius="12dp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_title_product_cart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,11 +29,11 @@
         android:text="Baju Bayi 1 Tahun lucu"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toEndOf="@+id/iv_product_banner_cart"
         app:layout_constraintTop_toBottomOf="@+id/view9" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tv_price_product_cart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,11 +41,11 @@
         android:layout_marginBottom="16dp"
         android:text="Rp. 59.000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/roundedImageView" />
+        app:layout_constraintEnd_toStartOf="@+id/tv_count_product"
+        app:layout_constraintStart_toEndOf="@+id/iv_product_banner_cart" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tv_count_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -65,7 +65,7 @@
         app:srcCompat="@drawable/ic_store_grey" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/tv_store_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
