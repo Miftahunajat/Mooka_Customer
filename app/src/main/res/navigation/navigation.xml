@@ -46,7 +46,7 @@
         tools:layout="@layout/fragment_checkout" />
     <fragment
         android:id="@+id/detailUmkmFragment"
-        android:name="com.example.mooka_customer.DetailUmkmFragment"
+        android:name="com.example.mooka_customer.screens.DetailUmkmFragment"
         android:label="fragment_detail_umkm"
         tools:layout="@layout/fragment_detail_umkm">
         <argument
