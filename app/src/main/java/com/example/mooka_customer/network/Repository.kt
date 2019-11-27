@@ -55,6 +55,6 @@ object ManagemenApi {
         .client(httpClient.build())
         .build()
 
-    var apiService: ApiService = retrofit.create<ApiService>(ApiService::class.java)
+    var apiService: ApiService = retrofit.create(ApiService::class.java)
     val PREFNAME = "mooka"
 }

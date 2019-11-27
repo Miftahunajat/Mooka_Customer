@@ -91,7 +91,8 @@ class HomeFragment : Fragment() {
 
     fun bindUmkmRecyclerView(view: View, umkm: UMKM){
         view.tv_title.text = umkm.nama
-        Picasso.get().load(umkm.gambar.standard.url).into(view.bg_banner)
+        view.tv_subtitle.text = umkm.jenis_umkm.tipe_umkm
+        Picasso.get().load(umkm.gambar.url).into(view.bg_banner)
 
         view.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailUmkmFragment2(umkm.id))

@@ -26,7 +26,7 @@ fun Context.getPrefString(key: String): String?{
 }
 
 fun Context.getPrefInt(key: String): Int{
-    return this.getSharedPreferences(Config.PREFNAME, 0).getInt(key, 0)
+    return this.getSharedPreferences(Config.PREFNAME, 0).getInt(key, -1)
 }
 
 fun Context.getPrefBoolean(key: String): Boolean{

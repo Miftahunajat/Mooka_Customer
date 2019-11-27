@@ -11,14 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mooka_customer.R
-import com.example.mooka_customer.extension.setupNoAdapter
-import com.example.mooka_customer.extension.showmessage
-import com.example.mooka_customer.extension.toRupiahs
+import com.example.mooka_customer.extension.*
 import com.example.mooka_customer.network.Repository
 import com.example.mooka_customer.network.lib.Resource
 import com.example.mooka_customer.network.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail_produk.view.*
+import kotlinx.android.synthetic.main.fragment_detail_produk.view.tv_price
+import kotlinx.android.synthetic.main.fragment_detail_produk.view.tv_title
+import kotlinx.android.synthetic.main.item_pilihan_toko_lainnya.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -41,8 +42,35 @@ class DetailProdukFragment : Fragment() {
 
         setupProductDetail(view!!)
         setupProductTerkait(view)
+        view.btn_tambah_keranjang.setOnClickListener {
+            onTambahKeranjang()
+        }
+        view.btn_beli_sekarang.setOnClickListener {
+//            onBeliSekarangClick()
+        }
         // Inflate the layout for this fragment
         return view
+    }
+
+    private fun onTambahKeranjang() {
+        val id = context?.getPrefInt("user_id")
+        Repository.postToCart(
+            id!!.toInt(), umkmId, productId
+        ).observe(this, Observer {
+            when(it?.status){
+                Resource.LOADING ->{
+                    Log.d("Loading", it.status.toString())
+                }
+                Resource.SUCCESS ->{
+                    context?.showmessage("Barang Berhasil Ditambahkan di keranjang")
+                    Log.d("Success", it.data.toString())
+                }
+                Resource.ERROR ->{
+                    Log.d("Error", it.message!!)
+                    context?.showmessage("Something is wrong")
+                }
+            }
+        })
     }
 
     private fun setupProductTerkait(view: View) {
@@ -96,5 +124,7 @@ class DetailProdukFragment : Fragment() {
 }
 
 fun bindPilihanTokoLainnya(view: View, product: Product) {
-
+    view.tv_title.text = product.title
+    view.tv_price.text = product.harga.toString().toRupiahs()
+    Picasso.get().load(product.gambar.url).into(view.iv_background)
 }

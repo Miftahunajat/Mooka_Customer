@@ -187,7 +187,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_pilihan_toko_lainnya" >
+        app:layout_constraintTop_toBottomOf="@+id/cv_pilihan_toko_lainnya"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -226,28 +228,35 @@
         android:orientation="horizontal"
         android:weightSum="1"
         android:layout_alignParentBottom="true">
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_tambah_keranjang"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:layout_weight="0.5"
             android:gravity="center"
+            android:layout_marginStart="8dp"
             android:elevation="0dp"
-            android:text="Tambah ke keranjangang"
+            android:text="Tambah ke Keranjang"
+            android:textSize="12sp"
             android:background="@color/colorWhite"
+            android:backgroundTint="@color/colorWhite"
+            app:rippleColor="@color/ruby_red"
+            android:layout_marginEnd="4dp"
             android:textAlignment="center"
             android:textColor="@color/ruby_red"
             android:textAllCaps="false"/>
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_beli_sekarang"
             android:layout_width="0dp"
             android:layout_weight="0.5"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:textAlignment="center"
             android:gravity="center"
+            android:layout_marginEnd="8dp"
             android:elevation="0dp"
+            android:layout_marginStart="4dp"
             android:textColor="@color/colorWhite"
-            android:background="@color/ruby_red"
+            android:backgroundTint="@color/ruby_red"
             android:text="Beli Sekarang"
             android:textAllCaps="false"/>
     </LinearLayout>

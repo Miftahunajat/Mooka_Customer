@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
+import com.example.mooka_customer.extension.getPrefInt
 import com.example.mooka_customer.extension.savePref
 import com.example.mooka_customer.extension.showAlertDialog
 import com.example.mooka_customer.extension.showmessage
@@ -36,6 +37,9 @@ class LoginFragment : Fragment() {
         }
         view.btn_login.setOnClickListener {
             loginUser(et_no_telp.text.toString(), et_password.text.toString())
+        }
+        if (context!!.getPrefInt("user_id") != -1){
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
         }
         // Inflate the layout for this fragment
         return view
