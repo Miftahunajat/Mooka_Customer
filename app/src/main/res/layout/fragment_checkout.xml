@@ -251,7 +251,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="Bulatkan Tagihan untuk donasi UMKM"
+            android:text="Bulatkan Tagihan untuk donasi IKM"
             app:layout_constraintStart_toEndOf="@+id/checkbox_donasi"
             app:layout_constraintTop_toBottomOf="@+id/textview3" />
 

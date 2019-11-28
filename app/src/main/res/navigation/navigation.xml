@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.mooka_customer.screens.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="MIKA"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailProdukFragment"
             app:destination="@id/detailProdukFragment"
@@ -33,13 +33,13 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.mooka_customer.screens.NotificationFragment"
-        android:label="fragment_notification"
+        android:label="Notifikasi"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/detailProdukFragment"
         android:name="com.example.mooka_customer.screens.DetailProdukFragment"
-        android:label="fragment_detail_produk"
-        tools:layout="@layout/fragment_detail_produk" >
+        android:label="Pesanan"
+        tools:layout="@layout/fragment_detail_produk">
         <action
             android:id="@+id/action_detailProdukFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
@@ -53,8 +53,8 @@
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.example.mooka_customer.screens.CheckoutFragment"
-        android:label="fragment_checkout"
-        tools:layout="@layout/fragment_checkout" >
+        android:label="Keranjang"
+        tools:layout="@layout/fragment_checkout">
         <action
             android:id="@+id/action_checkoutFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -63,7 +63,7 @@
     <fragment
         android:id="@+id/detailUmkmFragment"
         android:name="com.example.mooka_customer.screens.DetailUmkmFragment"
-        android:label="fragment_detail_umkm"
+        android:label="IKM"
         tools:layout="@layout/fragment_detail_umkm">
         <argument
             android:name="idUmkm"

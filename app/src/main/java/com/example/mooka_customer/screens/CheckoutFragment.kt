@@ -17,6 +17,7 @@ import com.example.mooka_customer.network.Repository
 import com.example.mooka_customer.network.lib.Resource
 import com.example.mooka_customer.network.model.Cart
 import com.example.mooka_customer.network.model.JenisPengiriman
+import com.example.mooka_customer.service.NotificationService
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_checkout.view.*
 import kotlinx.android.synthetic.main.item_barang_checkout.view.*
@@ -34,6 +35,10 @@ class CheckoutFragment : Fragment() {
     var selectedIdJenisPengiriman:Int = 0
 
     var jenisPengirimanList :List<JenisPengiriman> = ArrayList()
+
+    var listCart = mutableListOf<Cart>()
+
+    var donation: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,6 +76,7 @@ class CheckoutFragment : Fragment() {
         view.checkbox_donasi.addEventDialogListener {
             if (it.isChecked) {
                 totalPrice += calculateDonation()
+                donation += calculateDonation()
 
                 view.tv_pembulatan_donasi.text = "Pembulatan Donasi sebesar " +  calculateDonation()
                 view!!.tv_total_pembayaran.text = totalPrice.toString().toRupiahs()
@@ -78,6 +84,7 @@ class CheckoutFragment : Fragment() {
                 view!!.constraintLayoutDonasiTambahan.visibility = View.VISIBLE
             } else {
                 totalPrice-= calculateDonation()
+                donation -= calculateDonation()
 
                 view.tv_pembulatan_donasi.text = " "
                 view!!.tv_total_pembayaran.text = totalPrice.toString().toRupiahs()
@@ -99,6 +106,7 @@ class CheckoutFragment : Fragment() {
 
                     totalPrice += additionalDonation
 
+
                     view!!.tv_donasi_tambahan.text = "Donasi tambahan " + it
                     view!!.tv_total_pembayaran.text = totalPrice.toString().toRupiahs()
                 }
@@ -114,7 +122,7 @@ class CheckoutFragment : Fragment() {
 
                 val id = context?.getPrefInt("user_id")
 
-                Repository.checkout(id!!.toString(), selectedIdJenisPengiriman , calculateDonation()).observe(this, Observer {
+                Repository.checkout(id!!.toString(), selectedIdJenisPengiriman , donation + additionalDonation).observe(this, Observer {
                     when(it?.status){
                         Resource.LOADING ->{
                             Log.d("Loading", it.status.toString())
@@ -124,6 +132,25 @@ class CheckoutFragment : Fragment() {
                                 "Selamat, barang yang Anda yang ada dikeranjang berhasil dibeli...") {
                                 findNavController().navigate(CheckoutFragmentDirections.actionCheckoutFragmentToHomeFragment())
                             }
+
+                            NotificationService.getInstance(context)
+                                .backcheckingSelesaiNotification(
+                                    "Transfer Donasi berhasil",
+                                    "Terimakasih telah melakukan donasi sebesar ${donation +additionalDonation} kepada MIKA," +
+                                            "Dengan donasi anda maka anda turut dalam membangun IKM - IKM yang ada di indonesia",
+                                    "Donasi sebesar ${donation +additionalDonation} telah berhasil"
+                                    )
+
+                            listCart.forEach {
+                                NotificationService
+                                    .getInstance(context)
+                                    .sendNotifToUmkm(
+                                        it.umkm_id.toString(),
+                                        "Barang Terjual",
+                                        "Barang anda ${it.product.title} berhasil terrjual"
+                                        )
+                            }
+
                             Log.d("Success checkout", it.data.toString())
                         }
                         Resource.ERROR ->{
@@ -154,6 +181,7 @@ class CheckoutFragment : Fragment() {
                     Log.d("Loading", it.status.toString())
                 }
                 Resource.SUCCESS ->{
+                    listCart = it.data!!.toMutableList()
                     Log.d("Success", it.data.toString())
                     view!!.rv_barang_checkout.setupNoAdapter(
                         R.layout.item_barang_checkout,
