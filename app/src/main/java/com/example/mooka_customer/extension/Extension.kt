@@ -57,7 +57,7 @@ fun CheckBox.addEventDialogListener(update: (CheckBox) -> Unit){
 
 fun String.toRupiahs(): String{
     val money = String.format("%,d",this.toFloat().toInt())
-    return "Rp, $money"
+    return "Rp. $money"
 }
 
 fun String.formatToDate(patternBefore: String, patternAfter: String): String {
