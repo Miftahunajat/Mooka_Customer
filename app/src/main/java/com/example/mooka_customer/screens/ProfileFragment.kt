@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
 import com.example.mooka_customer.extension.clearPref
+import com.example.mooka_customer.extension.getPrefInt
 import com.example.mooka_customer.extension.showmessage
 import com.example.mooka_customer.extension.toRupiahs
 import com.example.mooka_customer.network.Repository
@@ -54,7 +55,8 @@ class ProfileFragment : Fragment() {
                     Log.d("Loading", it.status.toString())
                 }
                 Resource.SUCCESS ->{
-                    val user = it.data?.first()
+                    var idUser = context!!.getPrefInt("user_id")
+                    val user = it.data?.find { user ->  user.id == idUser}
                     view.tvNamaUser.text = user?.nama
                     view.tvEmailUser.text = user?.email
                     view.tv_total_donasi.text = user?.total_donasi?.toRupiahs()

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screens.RegisterFragment">
+    tools:context=".screens.RegisterFragment"
+    android:background="@color/colorWhite">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
