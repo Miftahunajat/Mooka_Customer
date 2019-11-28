@@ -33,6 +33,10 @@ fun Context.getPrefBoolean(key: String): Boolean{
     return this.getSharedPreferences(Config.PREFNAME, 0).getBoolean(key, false)
 }
 
+fun Context.clearPref(){
+    return this.getSharedPreferences(Config.PREFNAME, 0).edit().clear().apply()
+}
+
 fun <T> Context.getPrefObj(key: String, classType: Class<T>): T?{
     val jsonString : String? = this.getSharedPreferences(Config.PREFNAME, 0).getString(key, null)
     return if (jsonString != null) Gson().fromJson(jsonString, classType) else null

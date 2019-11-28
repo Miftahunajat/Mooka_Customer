@@ -16,7 +16,6 @@ import com.example.mooka_customer.network.lib.Resource
 import com.example.mooka_customer.network.model.User
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import kotlinx.android.synthetic.main.fragment_register.view.btn_login
 
 /**
  * A simple [Fragment] subclass.
@@ -55,6 +54,7 @@ class LoginFragment : Fragment() {
                     else {
                         context!!.savePref("user_id", user.id)
                         view.btn_login.finishLoading()
+                        context!!.showmessage("Berhasil Login")
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
                     }
 

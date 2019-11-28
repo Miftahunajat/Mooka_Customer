@@ -44,6 +44,16 @@ interface ApiService {
         @Field("product_id") productId: Int
     ) : Deferred<Response<Cart>>
 
+    @FormUrlEncoded
+    @POST("users")
+    fun register (
+        @Field("nama") nama :String,
+        @Field("no_telfon")  noTelfon: String,
+        @Field("password") password:String,
+        @Field("email") email :String
+
+    ) : Deferred<Response<User>>
+
     @GET("users/{user_id}/carts")
     fun  getAllCarts(
         @Path("user_id") id: Int

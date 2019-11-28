@@ -42,6 +42,10 @@ object Repository {
         client = ManagemenApi.apiService.addToCart(userId, umkmId, productId)
     }
 
+    fun register (name:String, email:String, noTelfon:String, password:String) = networkCall<User, User> {
+        client = ManagemenApi.apiService.register(name, noTelfon, password, email)
+    }
+
     fun checkout(userId: String, pengrimanId: Int?, donasi:Int) = networkCall<Cart, Cart> {
         client = ManagemenApi.apiService.checkout(userId, pengrimanId, donasi)
     }

@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
+import com.example.mooka_customer.extension.clearPref
 import com.example.mooka_customer.extension.showmessage
 import com.example.mooka_customer.extension.toRupiahs
 import com.example.mooka_customer.network.Repository
@@ -26,7 +28,22 @@ class ProfileFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         setupUser(view!!)
-        // Inflate the layout for this fragment
+
+        view.iv_logout_arrow.setOnClickListener {
+            context!!.clearPref()
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginActivity())
+        }
+
+        view.imageView13.setOnClickListener {
+            context!!.clearPref()
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginActivity())
+        }
+
+        view.textView12.setOnClickListener {
+            context!!.clearPref()
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginActivity())
+        }
+
         return view
     }
 

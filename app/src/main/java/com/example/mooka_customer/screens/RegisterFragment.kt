@@ -2,6 +2,7 @@ package com.example.mooka_customer.screens
 
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,28 +28,43 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
-        view.tv_daftar_disini.setOnClickListener {
+        view.tv_masuk_disini.setOnClickListener {
             findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
         }
-        view.btn_login.setOnClickListener {
-            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToMainActivity())
-        }
-        Repository.getAllUsers().observe(this, Observer {
-            when(it?.status){
-                Resource.LOADING ->{
-                    Log.d("Loading", it.status.toString())
-                }
-                Resource.SUCCESS ->{
-                    Log.d("Success", it.data.toString())
-                }
-                Resource.ERROR ->{
-                    Log.d("Error", it.message!!)
-                    context?.showmessage("Something is wrong")
-                }
+
+        view.btn_daftar.setOnClickListener {
+            if (isValid()) {
+                context!!.showmessage("Pastikan semua field terisi")
+
+            } else {
+                Repository.register(view!!.et_name_register.text.toString(), view.et_email_register.text.toString(), view.et_no_telp_register.text.toString(), view.et_password_register.text.toString())
+                    .observe(this, Observer {
+                        when(it?.status){
+                            Resource.LOADING ->{
+                                Log.d("Loading", it.status.toString())
+                            }
+                            Resource.SUCCESS ->{
+                                context!!.showmessage("Anda berhasil register")
+                                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToMainActivity())
+                                Log.d("Success", it.data.toString())
+                            }
+                            Resource.ERROR ->{
+                                Log.d("Error", it.message!!)
+                                context?.showmessage("Something is wrong")
+                            }
+                        }
+                    })
             }
-        })
+
+        }
+
         // Inflate the layout for this fragment
         return view
+    }
+
+    fun isValid()  :Boolean {
+        return view!!.et_name_register.text.toString().isEmpty() || view!!.et_email_register.text.toString().isEmpty() ||
+                view!!.et_no_telp_register.text.toString().isEmpty() || view!!.et_password_register.text.toString().isEmpty()
     }
 
 
