@@ -59,4 +59,5 @@ interface ApiService {
 
     @GET("pengirimen")
     fun getAllJenisPengiriman () : Deferred<Response<ListResponse<JenisPengiriman>>>
+
 }

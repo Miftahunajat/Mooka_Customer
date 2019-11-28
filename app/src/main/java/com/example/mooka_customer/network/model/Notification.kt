@@ -8,6 +8,7 @@ data class Notification(
     val judul: String,
     val text: String,
     val updated_at: String,
+    val tipe: String,
     val user_id: Int
 ) : DataResponse<Notification> {
     override fun retrieveData(): Notification = this

@@ -18,7 +18,8 @@ data class UMKM(
     val updated_at: String,
     val jenis_umkm: JenisUmkm,
     val phone: String,
-    val password:String
+    val password:String,
+    val products: List<Product>
 ) : DataResponse<UMKM> {
     override fun retrieveData(): UMKM = this
 }

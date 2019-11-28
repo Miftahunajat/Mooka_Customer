@@ -49,6 +49,10 @@ object Repository {
     fun getAllJenisPengiriman() = networkCall<ListResponse<JenisPengiriman>, List<JenisPengiriman>> {
         client = ManagemenApi.apiService.getAllJenisPengiriman()
     }
+
+    fun getAllNotifications(userId: Int) = networkCall<ListResponse<Notification>, List<Notification>> {
+        client = ManagemenApi.apiService.getAllNotifications(userId)
+    }
 }
 
 
