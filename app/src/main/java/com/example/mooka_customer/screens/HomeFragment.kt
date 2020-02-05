@@ -41,7 +41,6 @@ class HomeFragment : Fragment() {
         return view
     }
 
-
     private fun setupRekomendasi(view: View?) {
         Repository.getAllUmkms().observe(this, Observer {
             when(it?.status){

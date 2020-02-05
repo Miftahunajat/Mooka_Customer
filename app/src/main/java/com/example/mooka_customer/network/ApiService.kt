@@ -2,7 +2,6 @@ package com.example.mooka_customer.network
 
 import com.example.mooka_customer.network.model.*
 import kotlinx.coroutines.Deferred
-import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -65,9 +64,22 @@ interface ApiService {
         @Path("user_id") userId: String,
         @Field("pengiriman_id") pengirimanId: Int?,
         @Field("donasi") donasi: Int
-    ) : Deferred<Response<Cart>>
+    ) : Deferred<Response<ResponseCheckout>>
 
     @GET("pengirimen")
     fun getAllJenisPengiriman () : Deferred<Response<ListResponse<JenisPengiriman>>>
 
+    @FormUrlEncoded
+    @POST("/bri/cek_pembayaran")
+    fun checkPembayaran(
+        @Field("custcode") custCode : String
+    ) : Deferred<Response<ResponseCekPembayaran>>
+
+    @FormUrlEncoded
+    @POST("/bri/buat_pembayaran")
+    fun buatPembayaran (
+        @Field("custcode") custCode: String,
+        @Field("nama") nama: String,
+        @Field("amount") amount: Int
+    ) : Deferred<Response<ResponseBuatPembayaran>>
 }

@@ -4,12 +4,10 @@ import com.example.mooka_customer.Config
 import com.example.mooka_customer.network.lib.networkCall
 import com.example.mooka_customer.network.model.*
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
@@ -46,7 +44,7 @@ object Repository {
         client = ManagemenApi.apiService.register(name, noTelfon, password, email)
     }
 
-    fun checkout(userId: String, pengrimanId: Int?, donasi:Int) = networkCall<Cart, Cart> {
+    fun checkout(userId: String, pengrimanId: Int?, donasi:Int) = networkCall<ResponseCheckout, ResponseCheckout> {
         client = ManagemenApi.apiService.checkout(userId, pengrimanId, donasi)
     }
 
@@ -56,6 +54,18 @@ object Repository {
 
     fun getAllNotifications(userId: Int) = networkCall<ListResponse<Notification>, List<Notification>> {
         client = ManagemenApi.apiService.getAllNotifications(userId)
+    }
+
+    fun getUserDetail (userId: Int) = networkCall<User, User> {
+        client = ManagemenApi.apiService.getUserDetail(userId)
+    }
+
+    fun cekPembayaran (custCode : String) = networkCall<ResponseCekPembayaran, ResponseCekPembayaran> {
+        client=ManagemenApi.apiService.checkPembayaran(custCode)
+    }
+
+    fun buatPembayaran (custCode: String, nama: String, amount: Int) = networkCall<ResponseBuatPembayaran, ResponseBuatPembayaran> {
+        client = ManagemenApi.apiService.buatPembayaran(custCode, nama, amount)
     }
 }
 

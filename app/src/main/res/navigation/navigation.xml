@@ -59,6 +59,9 @@
             android:id="@+id/action_checkoutFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@+id/homeFragment" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_detailTagihanFragment"
+            app:destination="@id/previewTagihanFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailUmkmFragment"
@@ -74,4 +77,18 @@
         android:name="com.example.mooka_customer.screens.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/previewTagihanFragment"
+        android:name="com.example.mooka_customer.screens.PreviewTagihanFragment"
+        android:label="fragment_detail_tagihan"
+        tools:layout="@layout/fragment_preview_tagihan" >
+        <argument
+            android:name="CUST_CODE"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/daftarTagihanFragment"
+        android:name="com.example.mooka_customer.screens.DaftarTagihanFragment"
+        android:label="fragment_daftar_tagihan"
+        tools:layout="@layout/fragment_daftar_tagihan" />
 </navigation>

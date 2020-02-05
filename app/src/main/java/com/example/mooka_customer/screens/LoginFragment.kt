@@ -37,7 +37,6 @@ class LoginFragment : Fragment() {
         if (context!!.getPrefInt("user_id") != -1){
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
         }
-        // Inflate the layout for this fragment
         return view
     }
 
@@ -52,6 +51,7 @@ class LoginFragment : Fragment() {
                     if (user == null)
                         context!!.showAlertDialog("Gagal Login!", "Pastikan nomor telepon dan password Anda telah terdaftar")
                     else {
+                        context!!.savePref("user_no_telp", noTelp)
                         context!!.savePref("user_id", user.id)
                         view.btn_login.finishLoading()
                         context!!.showmessage("Berhasil Login")

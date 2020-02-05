@@ -48,7 +48,6 @@ class DetailProdukFragment : Fragment() {
         view.btn_beli_sekarang.setOnClickListener {
             onBeliSekarangClick()
         }
-        // Inflate the layout for this fragment
         return view
     }
 
@@ -124,11 +123,10 @@ class DetailProdukFragment : Fragment() {
         })
     }
 
-
+    fun bindPilihanTokoLainnya(view: View, product: Product) {
+        view.tv_title.text = product.title
+        view.tv_price.text = product.harga.toString().toRupiahs()
+        Picasso.get().load(product.gambar.url).into(view.iv_background)
+    }
 }
 
-fun bindPilihanTokoLainnya(view: View, product: Product) {
-    view.tv_title.text = product.title
-    view.tv_price.text = product.harga.toString().toRupiahs()
-    Picasso.get().load(product.gambar.url).into(view.iv_background)
-}

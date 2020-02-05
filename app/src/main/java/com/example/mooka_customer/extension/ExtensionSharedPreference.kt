@@ -16,6 +16,10 @@ fun Context.savePref(key: String, value: Boolean){
     this.getSharedPreferences(Config.PREFNAME, 0).edit().putBoolean(key, value).apply()
 }
 
+fun Context.savePref(key: String, value: Set<String>){
+    this.getSharedPreferences(Config.PREFNAME, 0).edit().putStringSet(key, value).apply()
+}
+
 fun Context.savePrefObj(key: String, value: Any){
     val json = Gson().toJson(value)
     this.getSharedPreferences(Config.PREFNAME, 0).edit().putString(key, json).apply()
@@ -31,6 +35,10 @@ fun Context.getPrefInt(key: String): Int{
 
 fun Context.getPrefBoolean(key: String): Boolean{
     return this.getSharedPreferences(Config.PREFNAME, 0).getBoolean(key, false)
+}
+
+fun Context.getPrefSetString(key: String): Set<String>?{
+    return this.getSharedPreferences(Config.PREFNAME, 0).getStringSet(key, HashSet<String>())
 }
 
 fun Context.clearPref(){
