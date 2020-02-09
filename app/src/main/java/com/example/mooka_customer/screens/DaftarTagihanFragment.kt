@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.mooka_customer.R
 import com.example.mooka_customer.extension.*
 import com.example.mooka_customer.network.Repository
@@ -32,31 +33,20 @@ class DaftarTagihanFragment : Fragment() {
 
     private fun getTagihans(view: View) {
         val userid = context?.getPrefInt("userid")
-        Repository.getAllTagihans(userid!!).observe(this, Observer {
-            when(it?.status){
-                Resource.LOADING ->{
-                    Log.d("Loading", it.status.toString())
-                }
-                Resource.SUCCESS ->{
-                    view.rv_tagihans.setupNoAdapter(R.layout.item_tagihans, it.data!!){view,tagihan->
-                        view.tv_nomor_briva.text = tagihan.number.toString()
-                        view.tv_harga_briva.text = tagihan.jumlah.toString()
-                        view.tv_tanggal.text = tagihan.created_at
-                        if (tagihan.status == "N"){
-                            view.tv_status.toBelumMembayar()
-                        }else{
-                            view.tv_status.toSudahMembayar()
-                        }
-                    }
-                    Log.d("Success", it.data.toString())
-                }
-                Resource.ERROR ->{
-                    Log.d("Error", it.message!!)
-                    context?.showmessage("Something is wrong")
-                }
+        val custcodes = context!!.getPrefSetString("custcode")
+        view.rv_tagihans.setupNoAdapter(
+            R.layout.item_tagihans,
+            custcodes!!.toList()
+        ) { view, string -> view.tv_nomor_briva.text = string
+            view.setOnClickListener {
+                findNavController().navigate(
+                    DaftarTagihanFragmentDirections.actionDaftarTagihanFragmentToPreviewTagihanFragment(
+                        string
+                    )
+                )
             }
-        })
+        }
+
+
     }
-
-
 }

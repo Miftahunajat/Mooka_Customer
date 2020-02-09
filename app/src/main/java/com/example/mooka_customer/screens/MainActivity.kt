@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, bundle: Bundle? ->
             when(nd.id) {
                 R.id.detailProdukFragment -> hideBottomNavigation()
+                R.id.previewTagihanFragment -> hideBottomNavigation()
                 else -> showBottomNavigation()
             }
             //            if (nd in [1,2,3])

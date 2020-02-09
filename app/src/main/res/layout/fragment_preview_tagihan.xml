@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.PreviewTagihanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvJudulNotification2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="No Pembayaran Briva"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/text_harga_briva2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Harga Bayar"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvJudulNotification2"
+
+        app:layout_constraintStart_toStartOf="@+id/tvJudulNotification2"
+        app:layout_constraintTop_toBottomOf="@id/tv_nomor_briva" />
+
+    <TextView
+        android:id="@+id/text_harga_briva3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Status"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="@+id/tv_harga_briva2"
+        app:layout_constraintStart_toStartOf="@+id/tv_harga_briva2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_harga_briva2" />
+
+    <TextView
+        android:id="@+id/tv_nomor_briva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="081358847213"
+        android:textSize="@dimen/font_title"
+        app:layout_constraintEnd_toEndOf="@+id/tvJudulNotification2"
+        app:layout_constraintStart_toStartOf="@+id/tvJudulNotification2"
+        app:layout_constraintTop_toBottomOf="@+id/tvJudulNotification2" />
+
+    <TextView
+        android:id="@+id/tv_harga_briva2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Rp 15.000.000"
+
+        android:textSize="@dimen/font_title"
+        app:layout_constraintEnd_toEndOf="@+id/text_harga_briva2"
+        app:layout_constraintStart_toStartOf="@+id/text_harga_briva2"
+        app:layout_constraintTop_toBottomOf="@+id/text_harga_briva2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_tanggal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sebelum tanggal : 21/12/2012"
+        app:layout_constraintEnd_toEndOf="@+id/tv_status"
+        android:layout_marginTop="32dp"
+        android:textSize="@dimen/font_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_red_line_soft"
+        android:padding="8dp"
+        android:text="Belum Dibayar"
+        android:textColor="@color/red_500"
+        app:layout_constraintEnd_toEndOf="@+id/text_harga_briva3"
+        app:layout_constraintStart_toStartOf="@+id/text_harga_briva3"
+        app:layout_constraintTop_toBottomOf="@+id/text_harga_briva3" />
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeskripsiNotification" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Konfirmasi Pembayaran BRIVA"
+        android:textColor="@color/ruby_red"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000002" />
+</androidx.constraintlayout.widget.ConstraintLayout>

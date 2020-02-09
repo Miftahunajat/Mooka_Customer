@@ -93,5 +93,9 @@
         android:id="@+id/daftarTagihanFragment"
         android:name="com.example.mooka_customer.screens.DaftarTagihanFragment"
         android:label="fragment_daftar_tagihan"
-        tools:layout="@layout/fragment_daftar_tagihan" />
+        tools:layout="@layout/fragment_daftar_tagihan" >
+        <action
+            android:id="@+id/action_daftarTagihanFragment_to_previewTagihanFragment"
+            app:destination="@id/previewTagihanFragment" />
+    </fragment>
 </navigation>
