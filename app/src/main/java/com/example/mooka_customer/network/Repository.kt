@@ -67,6 +67,10 @@ object Repository {
     fun buatPembayaran (custCode: String, nama: String, amount: Int) = networkCall<ResponseBuatPembayaran, ResponseBuatPembayaran> {
         client = ManagemenApi.apiService.buatPembayaran(custCode, nama, amount)
     }
+
+    fun getAllTagihans(userId: Int) = networkCall<ListResponse<Tagihan>, List<Tagihan>> {
+        client = ManagemenApi.apiService.getAllTagihans(userId)
+    }
 }
 
 

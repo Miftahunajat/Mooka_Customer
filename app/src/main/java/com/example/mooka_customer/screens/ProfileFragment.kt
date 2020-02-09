@@ -35,6 +35,10 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginActivity())
         }
 
+        view.iv_tagihan_arrow.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToDaftarTagihanFragment())
+        }
+
         view.imageView13.setOnClickListener {
             context!!.clearPref()
             findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginActivity())

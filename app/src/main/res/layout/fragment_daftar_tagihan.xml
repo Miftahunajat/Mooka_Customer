@@ -8,6 +8,8 @@
     tools:context=".screens.DaftarTagihanFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tagihans"
+        tools:listitem="@layout/item_tagihans"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

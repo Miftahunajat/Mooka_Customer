@@ -82,4 +82,10 @@ interface ApiService {
         @Field("nama") nama: String,
         @Field("amount") amount: Int
     ) : Deferred<Response<ResponseBuatPembayaran>>
+
+    @GET("users/{user_id}/tagihans")
+    fun  getAllTagihans(
+        @Path("user_id") id: Int
+    ) : Deferred<Response<ListResponse<Tagihan>>>
+
 }
