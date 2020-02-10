@@ -8,7 +8,6 @@
     tools:context=".screens.LoginFragment"
     android:background="@color/colorWhite">
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

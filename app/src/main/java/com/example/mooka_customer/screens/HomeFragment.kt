@@ -58,7 +58,6 @@ class HomeFragment : Fragment() {
                 }
                 Resource.ERROR ->{
                     Log.e("Error", it.message!!)
-                    Log.e("data", it.data.toString())
                     context?.showmessage("Something is wrong")
                 }
             }
