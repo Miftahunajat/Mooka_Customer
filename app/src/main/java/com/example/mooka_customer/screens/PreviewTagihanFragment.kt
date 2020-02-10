@@ -43,7 +43,6 @@ class PreviewTagihanFragment : Fragment() {
                 Resource.SUCCESS ->{
                     setData(view!!, it.data!!.data)
                     Log.e("Success", it.data.toString())
-                    Log.e("custcode", it.data.toString())
                     //20123456789, 18123456789, 21123456789, 19123456789, 22123456789
                 }
                 Resource.ERROR ->{
