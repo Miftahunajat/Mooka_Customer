@@ -78,7 +78,7 @@ public class NotificationService {
 
     private Bitmap largeIcon(Context context) {
         Resources res = context.getResources();
-        return BitmapFactory.decodeResource(res, R.mipmap.logo_mika);
+        return BitmapFactory.decodeResource(res, R.mipmap.logo_mooka);
     }
 
     public void sendNotifToUmkm(final String umkm_id, final String title, final String body) {
@@ -160,7 +160,7 @@ public class NotificationService {
                 .setContentIntent(contentIntent(mContext))
                 .setLights(Color.RED, 1000, 300)
                 .setColor(ContextCompat.getColor(mContext, R.color.colorPrimary))
-                .setSmallIcon(R.mipmap.logo_mika)
+                .setSmallIcon(R.mipmap.logo_mooka)
                 .setLargeIcon(largeIcon(mContext))
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(body));
