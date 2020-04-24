@@ -53,6 +53,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupUser(view: View) {
+
         Repository.getAllUsers().observe(this, Observer {
             when(it?.status){
                 Resource.LOADING ->{
